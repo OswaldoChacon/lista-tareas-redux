@@ -17,10 +17,14 @@ export const editar = createAction(
 
 export const borrar = createAction(
     '[TODO] Borrar',
-    props<{ id: number } > ()
+    props<{ id: number }>()
 )
 
-export const toggleAll =  createAction(
+export const toggleAll = createAction(
     '[TODO] ToggleAll',
-    props<{completado: boolean}>()
+    props<{ completado: boolean }>()
 )
+
+export const limpiarLista = createAction(
+    '[Filtro] Limpiar lista'
+);

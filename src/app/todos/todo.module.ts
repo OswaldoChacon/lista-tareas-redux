@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ItemComponent } from './item/item.component';
 import { ListaComponent } from './lista/lista.component';
 import { PageComponent } from './page/page.component';
+import { FiltroPipe } from './filtro.pipe';
 
 
 
@@ -16,12 +17,14 @@ import { PageComponent } from './page/page.component';
     FooterComponent,
     ItemComponent,
     ListaComponent,
-    PageComponent],
+    PageComponent,
+    FiltroPipe
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule
   ],
-  exports:[
+  exports: [
     PageComponent
   ]
 })

@@ -1,3 +1,4 @@
+import { filtrosValidos } from './../../filtro/filtro.actions';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../models/todo.model';
@@ -11,14 +12,19 @@ import { Observable } from 'rxjs';
 })
 export class ListaComponent implements OnInit {
 
-  // todos: Todo[] = [];
-  todos$: Observable<Todo[]>;
+  todos: Todo[] = [];
+  // todos$: Observable<Todo[]>;
+  filtroActual: filtrosValidos;
   constructor(
     private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
-    this.todos$ = this.store.select('todos');
+    this.store.subscribe(({ filtro, todos }) => {
+      this.todos = todos;
+      this.filtroActual = filtro;
+    });
+    // this.todos$ = this.store.select('todos');
   }
 
 }

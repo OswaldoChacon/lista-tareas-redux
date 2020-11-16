@@ -1,7 +1,7 @@
 import { Todo } from './models/todo.model';
-import { createReducer, on } from '@ngrx/store';
+import { createReducer, on, State, Action } from '@ngrx/store';
 import * as actions from './todo.actions';
-import { of } from 'rxjs';
+
 
 
 const initialState: Todo[] = [
@@ -45,9 +45,10 @@ const _todoReducer = createReducer(
                 completado
             }
         })
-    })
+    }),
+    on(actions.limpiarLista, (state) => state.filter(todo => !todo.completado))
 );
 
-export function todoReducer(state, action) {
+export function todoReducer(state, action: Action) {
     return _todoReducer(state, action);
 }
